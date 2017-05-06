@@ -32,7 +32,6 @@ class VkAuthView(View):
             code_url = 'https://oauth.vk.com/authorize?' \
                        'client_id=%(client_id)s&' \
                        'redirect_uri=%(redirect_url)s&' \
-                       'response_type=token&' \
                        'v=5.64&' \
                        'scope=%(scope)s' % dict(
                 client_id=VK_APP_ID,
