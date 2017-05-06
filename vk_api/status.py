@@ -20,10 +20,10 @@ def update_status():
     vk_api.status.set(text=new_status)
 
 
-schedule.every().hour.do(update_status)
-
-print('In working...')
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# schedule.every().hour.do(update_status)
+#
+# print('In working...')
+#
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
