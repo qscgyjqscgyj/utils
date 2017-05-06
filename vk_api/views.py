@@ -34,7 +34,6 @@ class VkAuthView(View):
                        'redirect_uri=%(redirect_url)s&' \
                        'response_type=token&' \
                        'v=5.64&' \
-                       'revoke=1&' \
                        'scope=%(scope)s' % dict(
                 client_id=VK_APP_ID,
                 redirect_url=redirect_url,
