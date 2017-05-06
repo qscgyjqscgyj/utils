@@ -18,12 +18,13 @@ def update_status():
 
     new_status_url = 'https://api.vk.com/method/status.set?' \
                      'access_token=%(access_token)s&' \
-                     'text=%(text)s&v=5.52'\
+                     'text=%(text)s&' \
+                     'v=5.64'\
                      % dict(
                             access_token=access_token,
                             text=new_status
                         )
-    r = requests.get(new_status_url)
+    return requests.get(new_status_url)
 
 
 # schedule.every().hour.do(update_status)
