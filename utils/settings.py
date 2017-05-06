@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'vk_api'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -100,3 +101,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# VK API
+VK_APP_ID = '6018964'
+VK_APP_SECRET = '3mHRXzYxYpdEMmxv8kFX'
+VK_APP_SCOPE = 'status'
+VK_ADMIN_USER_ID = '32882895'

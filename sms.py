@@ -16,11 +16,13 @@ LUNCH_TIME = '17:00'
 SECOND_SNACK_TIME = '19:30'
 DINNER_TIME = '22:00'
 
+
 def send_sms(day, day_part):
-	data = {'api_id': SMS_RU_MISHA, 'to': '79233694898', 'text': str(int(M[day] * DAY_PARTS[day_part]))}
-	requests.post('http://sms.ru/sms/send', data=data)
-	data = {'api_id': SMS_RU_ALINA, 'to': '79233724258', 'text': str(int(A[day] * DAY_PARTS[day_part]))}
-	requests.post('http://sms.ru/sms/send', data=data)
+    data = {'api_id': SMS_RU_MISHA, 'to': '79233694898', 'text': str(int(M[day] * DAY_PARTS[day_part]))}
+    requests.post('http://sms.ru/sms/send', data=data)
+    data = {'api_id': SMS_RU_ALINA, 'to': '79233724258', 'text': str(int(A[day] * DAY_PARTS[day_part]))}
+    requests.post('http://sms.ru/sms/send', data=data)
+
 
 schedule.every().monday.at(BREAKFAST_TIME).do(send_sms, 0, 0)
 schedule.every().monday.at(FIRST_SNACK_TIME).do(send_sms, 0, 1)
@@ -69,4 +71,3 @@ print('In working...')
 while True:
     schedule.run_pending()
     time.sleep(1)
-
