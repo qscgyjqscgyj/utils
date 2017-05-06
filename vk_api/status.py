@@ -1,10 +1,7 @@
 import requests
-import schedule
-import time
-import vk
 import datetime
 
-from utils.settings import VK_ADMIN_USER_ID
+from utils.settings import VK_ADMIN_USER_ID, VK_API_CALL_URL
 from vk_api.models import VkAuthToken
 
 
@@ -13,18 +10,8 @@ TRAIN_FINISH_TIME = datetime.datetime(2017, 5, 16, 16, 30)
 
 def update_status():
     access_token = VkAuthToken.objects.token(VK_ADMIN_USER_ID)
-    now = datetime.datetime.now()
-    new_status = str(TRAIN_FINISH_TIME - now).split('.')[0]
-
-    new_status_url = 'https://api.vk.com/method/status.set?' \
-                     'access_token=%(access_token)s&' \
-                     'text=%(text)s&' \
-                     'v=5.64'\
-                     % dict(
-                            access_token=access_token,
-                            text=new_status
-                        )
-    return requests.get(new_status_url)
+    new_status = str(TRAIN_FINISH_TIME - datetime.datetime.now()).split('.')[0]
+    return requests.get(VK_API_CALL_URL, params=dict(access_token=access_token, text=new_status, v='5.64'))
 
 
 # schedule.every().hour.do(update_status)
